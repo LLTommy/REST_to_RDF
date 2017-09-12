@@ -51,11 +51,12 @@ def buildGraph(params):
 
                 if ('ontologyTerms' in sample['characteristics'][entry][0]):
                     g.add( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
-                    g.add( (bnode, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text']) ) )
-                else:
+
+                g.add( (bnode, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                #else:
                     #Should this be else? Does it make sense to always assign the "text"? It is not really necessary if we have an ontology term anyway
-                    g.add( (bnode, URIRef("http://rdf.propertyType"), Literal(entry) ) )
-                    g.add( (bnode, URIRef("http://rdf.propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                g.add( (bnode, URIRef("http://rdf.propertyType"), Literal(entry) ) )
+                g.add( (bnode, URIRef("http://rdf.propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
 
 
             #####Should these things added to a blank node as well? #####
@@ -78,16 +79,12 @@ def buildGraph(params):
                         #note TO SELF - WE WANT TO CHANGE THIS LATER ON TO THE SAME FORMAT THAN PUBMED gives us their data
                         g.add( (node, URIRef(config['publications']), Literal(entry['pubmed_id']) ) )
 
+
             #Keep doing this for relevant/interesting data if there is something ?? is there?
-            #Logging for unmapped keys, let's see if we can find something else
+            #Logging for unmapped keys, let's see if we can find something else on the top level that we did no map yet
             for key in sample.keys():
                 if key not in listOfUnMappedKeys and key not in config.keys():
                     listOfUnMappedKeys.append(key)
-
-            #for key in sample['characteristics'].keys():
-            #    if key not in listOfUnMappedKeys and key not in config.keys():
-            #        listOfUnMappedKeys.append(key)
-
 
             #####Now let's get into relationships....
             rel = requests.get(sample['_links']['relations']["href"])
@@ -100,7 +97,7 @@ def buildGraph(params):
         #End of FOR loop
         print listOfUnMappedKeys
         page=page+1
-        if page>endpage or page%2==0: #The part after the or is just for testing
+        if page>endpage or page%2==0: #The part after the or is just for testing and will be removed for a real run
             keep_running=False
 
         output=g.serialize(format='turtle')                 #We use turtle
