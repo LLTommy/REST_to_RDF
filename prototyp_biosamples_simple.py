@@ -100,7 +100,7 @@ def buildGraph(params):
         #End of FOR loop
         print listOfUnMappedKeys
         page=page+1
-        if page>endpage or page%2==0:
+        if page>endpage or page%2==0: #The part after the or is just for testing
             keep_running=False
 
         output=g.serialize(format='turtle')                 #We use turtle
