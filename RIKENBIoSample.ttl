@@ -1,0 +1,40 @@
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <http://> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix riken: <http://metadb.riken.jp/> .
+
+<http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/BioSample/BioSample001> a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/BioSample> ;
+    ns3:title "BioSample001" ;
+    ns3:identifier "BioSample001" ;
+    ns3:description "Rat liver" ;
+    ns3:modified "2017-09-12" ;
+    ns1:NCIT_C25461 "Satoshi Kume" ;
+    ns1:NCIT_C93874 <http://metadb.riken.jp/db/clstMultimodalMicrostruct/ome/ExperimenterGroup/RIKEN_CLST001> ;
+    ns1:NCIT_C25447 [ rdfs:label "liver" ;
+            ns2:rdf.propertyType "Derives_from " ;
+            ns2:rdf.propertyValue "liver" ;
+	    a <http://purl.obolibrary.org/obo/UBERON_0002107> ], 
+        [ rdfs:label "Rattus norvegicus" ;
+            ns2:rdf.propertyType "sio:organism" ;
+            ns2:rdf.propertyValue "Rattus norvegicus" ;
+	    a <http://purl.obolibrary.org/obo/NCBITaxon_10116> ],
+        [ rdfs:label "Slc:SD" ;
+            ns2:rdf.propertyType "sio:strain" ;
+            ns2:rdf.propertyValue "Slc:SD" ;
+            a <http://purl.obolibrary.org/obo/RS_0001400> ],
+        [ rdfs:label "Normal Rat Liver" ;
+            ns2:rdf.propertyType "Phenotype Data of Biosample" ;
+            ns2:rdf.propertyValue "Normal Rat Liver" ;
+            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/PhenotypeDataOfBioSample/RatLiver001> ],
+        [ rdfs:label "Exp Rat Individual 001" ;
+            ns2:rdf.propertyType "Derives_form (http://purl.obolibrary.org/obo/RO_0001000)" ;
+            ns2:rdf.propertyValue "Exp Rat Individual 001" ;
+            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/brc/Individual/Exp_Indiv001> ],
+        [ rdfs:label "Slc:SD" ;
+            ns2:rdf.propertyType "Animal Strain Used in This Database" ;
+            ns2:rdf.propertyValue "Slc:SD" ;
+            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/SampleStrainType/Slc:SD> ].
