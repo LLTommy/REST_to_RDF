@@ -7,12 +7,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274524> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "diseaseState" ;
+    ns1:NCIT_C25447 [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
             ns2:rdf.propertyValue "Orphanet:399" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
         [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns2:rdf.propertyType "commonName" ;
-            ns2:rdf.propertyValue "Human" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Jong-Min Lee" ;
     ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
     ns3:description "Huntington's disease subject 3342 - Huntington's disease subject analyzed for HTT haplotype 3342" ;
@@ -21,11 +25,15 @@
     ns3:title "QBVNFT" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274623> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns2:rdf.propertyType "commonName" ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
             ns2:rdf.propertyValue "Human" ],
-        [ ns2:rdf.propertyType "diseaseState" ;
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
             ns2:rdf.propertyValue "Orphanet:399" ] ;
     ns1:NCIT_C25461 "Jong-Min Lee" ;
     ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
@@ -35,11 +43,15 @@
     ns3:title "JKLJAI" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274822> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns2:rdf.propertyType "commonName" ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
             ns2:rdf.propertyValue "Human" ],
-        [ ns2:rdf.propertyType "diseaseState" ;
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
             ns2:rdf.propertyValue "Orphanet:399" ] ;
     ns1:NCIT_C25461 "Jong-Min Lee" ;
     ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
@@ -49,12 +61,16 @@
     ns3:title "EWNRJU" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275016> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns2:rdf.propertyType "commonName" ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
             ns2:rdf.propertyValue "Human" ],
-        [ ns2:rdf.propertyType "diseaseState" ;
-            ns2:rdf.propertyValue "Orphanet:399" ] ;
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Jong-Min Lee" ;
     ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
     ns3:description "Huntington's disease subject 1184 - Huntington's disease subject analyzed for HTT haplotype 1184" ;
@@ -63,12 +79,16 @@
     ns3:title "DMYPJD" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275117> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "diseaseState" ;
-            ns2:rdf.propertyValue "Orphanet:399" ],
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
         [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns2:rdf.propertyType "commonName" ;
-            ns2:rdf.propertyValue "Human" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ] ;
     ns1:NCIT_C25461 "Jong-Min Lee" ;
     ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
     ns3:description "Huntington's disease subject 3134 - Huntington's disease subject analyzed for HTT haplotype 3134" ;
@@ -77,16 +97,22 @@
     ns3:title "RTQYTG" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA1484309> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "synonym" ;
-            ns2:rdf.propertyValue "06_1908-sc-2012-03-21T11:10:39Z-1383440" ],
-        [ ns2:rdf.propertyType "secondaryDescription" ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_28901 ;
+            rdfs:label "28901" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "28901" ],
+        [ rdfs:label "Salmonella Beaudesert" ;
+            ns2:rdf.propertyType "secondaryDescription" ;
             ns2:rdf.propertyValue "Salmonella Beaudesert" ],
-        [ ns2:rdf.propertyType "species" ;
+        [ rdfs:label "Salmonella enterica" ;
+            ns2:rdf.propertyType "species" ;
             ns2:rdf.propertyValue "Salmonella enterica" ],
-        [ ns2:rdf.propertyType "strain" ;
-            ns2:rdf.propertyValue "06-1908" ],
-        [ a ns1:NCBITaxon_28901 ;
-            rdfs:label "28901" ] ;
+        [ rdfs:label "06_1908-sc-2012-03-21T11:10:39Z-1383440" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "06_1908-sc-2012-03-21T11:10:39Z-1383440" ],
+        [ rdfs:label "06-1908" ;
+            ns2:rdf.propertyType "strain" ;
+            ns2:rdf.propertyValue "06-1908" ] ;
     ns3:description "1 28901 samples from ENA SRA" ;
     ns3:identifier "SAMEA1484309" ;
     ns3:modified "2015-08-19" ;
@@ -94,27 +120,39 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA1484968> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_1280 ;
-            rdfs:label "Staphylococcus aureus" ],
+            rdfs:label "Staphylococcus aureus" ;
+            ns2:rdf.propertyType "species" ;
+            ns2:rdf.propertyValue "Staphylococcus aureus" ],
+        [ rdfs:label "08-346-0188" ;
+            ns2:rdf.propertyType "strain" ;
+            ns2:rdf.propertyValue "08-346-0188" ],
         [ a ns1:NCBITaxon_1280 ;
-            rdfs:label "Staphylococcus aureus" ],
-        [ ns2:rdf.propertyType "synonym" ;
-            ns2:rdf.propertyValue "08_346_0188-sc-2012-04-23T10:06:03Z-1402896" ],
-        [ ns2:rdf.propertyType "strain" ;
-            ns2:rdf.propertyValue "08-346-0188" ] ;
+            rdfs:label "Staphylococcus aureus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Staphylococcus aureus" ],
+        [ rdfs:label "08_346_0188-sc-2012-04-23T10:06:03Z-1402896" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "08_346_0188-sc-2012-04-23T10:06:03Z-1402896" ] ;
     ns3:description "1 Staphylococcus aureus samples from ENA SRA" ;
     ns3:identifier "SAMEA1484968" ;
     ns3:modified "2015-08-19" ;
     ns3:title "ERS129414" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA1485023> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "synonym" ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_1280 ;
+            rdfs:label "Staphylococcus aureus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Staphylococcus aureus" ],
+        [ a ns1:NCBITaxon_1280 ;
+            rdfs:label "Staphylococcus aureus" ;
+            ns2:rdf.propertyType "species" ;
+            ns2:rdf.propertyValue "Staphylococcus aureus" ],
+        [ rdfs:label "09_019_0021-sc-2012-04-23T09:46:36Z-1402920" ;
+            ns2:rdf.propertyType "synonym" ;
             ns2:rdf.propertyValue "09_019_0021-sc-2012-04-23T09:46:36Z-1402920" ],
-        [ a ns1:NCBITaxon_1280 ;
-            rdfs:label "Staphylococcus aureus" ],
-        [ ns2:rdf.propertyType "strain" ;
-            ns2:rdf.propertyValue "09-019-0021" ],
-        [ a ns1:NCBITaxon_1280 ;
-            rdfs:label "Staphylococcus aureus" ] ;
+        [ rdfs:label "09-019-0021" ;
+            ns2:rdf.propertyType "strain" ;
+            ns2:rdf.propertyValue "09-019-0021" ] ;
     ns3:description "1 Staphylococcus aureus samples from ENA SRA" ;
     ns3:identifier "SAMEA1485023" ;
     ns3:modified "2015-08-19" ;
@@ -122,7 +160,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063340> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_10516" ;
@@ -132,7 +172,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063433> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_17182" ;
@@ -141,16 +183,24 @@
     ns3:title "17182" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA306352> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "age" ;
-            ns2:rdf.propertyValue "5-8 wk old" ],
-        [ a ns1:UBERON_0002048 ;
-            rdfs:label "lung" ],
-        [ ns2:rdf.propertyType "sampleSourceName" ;
+    ns1:NCIT_C25447 [ a ns1:UBERON_0002048 ;
+            rdfs:label "lung" ;
+            ns2:rdf.propertyType "organismPart" ;
+            ns2:rdf.propertyValue "lung" ],
+        [ a <http://www.ebi.ac.uk/efo/EFO_0000602> ;
+            rdfs:label "BALB/c" ;
+            ns2:rdf.propertyType "strain" ;
+            ns2:rdf.propertyValue "BALB/c" ],
+        [ rdfs:label "lung 6h after challenge" ;
+            ns2:rdf.propertyType "sampleSourceName" ;
             ns2:rdf.propertyValue "lung 6h after challenge" ],
         [ a ns1:NCBITaxon_10090 ;
-            rdfs:label "Mus musculus" ],
-        [ a <http://www.ebi.ac.uk/efo/EFO_0000602> ;
-            rdfs:label "BALB/c" ] ;
+            rdfs:label "Mus musculus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Mus musculus" ],
+        [ rdfs:label "5-8 wk old" ;
+            ns2:rdf.propertyType "age" ;
+            ns2:rdf.propertyValue "5-8 wk old" ] ;
     ns1:NCIT_C25461 "Scott Evans" ;
     ns1:NCIT_C93874 "University of Texas-M.D. Anderson Cancer Center" ;
     ns3:description "C3: no treatment" ;
@@ -160,7 +210,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063609> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_40182" ;
@@ -170,7 +222,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063700> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_41893" ;
@@ -180,7 +234,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063789> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_48808" ;
@@ -190,7 +246,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3063880> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_52843" ;
@@ -199,18 +257,30 @@
     ns3:title "52843" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA306397> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ a ns1:NCBITaxon_10090 ;
-            rdfs:label "Mus musculus" ],
-        [ a ns1:OBI_0000971 ;
-            rdfs:label "fresh_sample" ],
-        [ a ns1:UBERON_0002107 ;
-            rdfs:label "liver" ],
-        [ a <http://www.ebi.ac.uk/efo/EFO_0001272> ;
-            rdfs:label "adult" ],
-        [ a ns1:PATO_0000384 ;
-            rdfs:label "male" ],
+    ns1:NCIT_C25447 [ a ns1:OBI_0000971 ;
+            rdfs:label "fresh_sample" ;
+            ns2:rdf.propertyType "biosourcetype" ;
+            ns2:rdf.propertyValue "fresh_sample" ],
         [ a ns1:CL_0000182 ;
-            rdfs:label "Hepatocytes" ] ;
+            rdfs:label "Hepatocytes" ;
+            ns2:rdf.propertyType "targetedcelltype" ;
+            ns2:rdf.propertyValue "Hepatocytes" ],
+        [ a ns1:PATO_0000384 ;
+            rdfs:label "male" ;
+            ns2:rdf.propertyType "sex" ;
+            ns2:rdf.propertyValue "male" ],
+        [ a ns1:NCBITaxon_10090 ;
+            rdfs:label "Mus musculus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Mus musculus" ],
+        [ a ns1:UBERON_0002107 ;
+            rdfs:label "liver" ;
+            ns2:rdf.propertyType "organismPart" ;
+            ns2:rdf.propertyValue "liver" ],
+        [ a <http://www.ebi.ac.uk/efo/EFO_0001272> ;
+            rdfs:label "adult" ;
+            ns2:rdf.propertyType "developmentalStage" ;
+            ns2:rdf.propertyValue "adult" ] ;
     ns1:NCIT_C25461 "Danyel Jennen" ;
     ns1:NCIT_C93874 "Maastricht University" ;
     ns3:description "Primary mouse hepatocytes are applied in this study as an in vitro system to discriminate false positive GTX compounds from true GTX compounds." ;
@@ -220,7 +290,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3064055> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_52839" ;
@@ -230,7 +302,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3064056> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_30659" ;
@@ -240,7 +314,9 @@
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3064140> a ns1:OBI_0000747 ;
     ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
     ns1:NCIT_C25461 "Gary Saunders" ;
     ns1:NCIT_C93874 "EBI - EVA" ;
     ns3:description "ExAC_v0.1_Sample_39401" ;
@@ -249,385 +325,525 @@
     ns3:title "39401" .
 
 <http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3212940> a ns1:OBI_0000747 ;
-    ns1:NCIT_C25447 [ ns2:rdf.propertyType "geographicLocationCountryAndOrSeaRegion" ;
-            ns2:rdf.propertyValue "Australia" ],
-        [ ns2:rdf.propertyType "hostStatus" ;
-            ns2:rdf.propertyValue "diseased" ],
-        [ ns2:rdf.propertyType "synonym" ;
-            ns2:rdf.propertyValue "UoM, Convergent Adaptation in the Dominant Global Hospital Clone ST239 of Methicillin-Resistant Staphylococcus aureus, BPH0494" ],
-        [ ns2:rdf.propertyType "sequencingMethod" ;
+    ns1:NCIT_C25447 [ rdfs:label "ILLUMINA" ;
+            ns2:rdf.propertyType "sequencingMethod" ;
             ns2:rdf.propertyValue "ILLUMINA" ],
-        [ ns2:rdf.propertyType "host" ;
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "host" ;
             ns2:rdf.propertyValue "Human" ],
-        [ ns2:rdf.propertyType "isolationSource" ;
+        [ rdfs:label "diseased" ;
+            ns2:rdf.propertyType "hostStatus" ;
+            ns2:rdf.propertyValue "diseased" ],
+        [ rdfs:label "human clinical" ;
+            ns2:rdf.propertyType "isolationSource" ;
             ns2:rdf.propertyValue "human clinical" ],
-        [ ns2:rdf.propertyType "colectionDate" ;
+        [ rdfs:label "2005" ;
+            ns2:rdf.propertyType "colectionDate" ;
             ns2:rdf.propertyValue "2005" ],
-        [ ns2:rdf.propertyType "country" ;
-            ns2:rdf.propertyValue "Australia" ],
-        [ ns2:rdf.propertyType "investigationType" ;
-            ns2:rdf.propertyValue "prokaryote" ],
-        [ ns2:rdf.propertyType "strain" ;
-            ns2:rdf.propertyValue "BPH0494" ],
         [ a ns1:NCBITaxon_1280 ;
-            rdfs:label "Staphylococcus aureus" ] ;
+            rdfs:label "Staphylococcus aureus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Staphylococcus aureus" ],
+        [ rdfs:label "Australia" ;
+            ns2:rdf.propertyType "country" ;
+            ns2:rdf.propertyValue "Australia" ],
+        [ rdfs:label "prokaryote" ;
+            ns2:rdf.propertyType "investigationType" ;
+            ns2:rdf.propertyValue "prokaryote" ],
+        [ rdfs:label "BPH0494" ;
+            ns2:rdf.propertyType "strain" ;
+            ns2:rdf.propertyValue "BPH0494" ],
+        [ rdfs:label "UoM, Convergent Adaptation in the Dominant Global Hospital Clone ST239 of Methicillin-Resistant Staphylococcus aureus, BPH0494" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "UoM, Convergent Adaptation in the Dominant Global Hospital Clone ST239 of Methicillin-Resistant Staphylococcus aureus, BPH0494" ],
+        [ rdfs:label "Australia" ;
+            ns2:rdf.propertyType "geographicLocationCountryAndOrSeaRegion" ;
+            ns2:rdf.propertyValue "Australia" ] ;
     ns3:identifier "SAMEA3212940" ;
     ns3:modified "2016-02-15" ;
     ns3:title "ERS640782" .
 
-@prefix ns1: <http://> .
-@prefix ns2: <http://purl.org/dc/terms/> .
-@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <http://> .
+@prefix ns3: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010173> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ],
-        [ ns1:rdf.propertyType "sampleComment" ;
-            ns1:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ a ns3:NCBITaxon_408170 ;
-            rdfs:label "human gut metagenome" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS000463" ] ;
-    ns2:description "1 human gut metagenome samples" ;
-    ns2:identifier "SAMD00010173" ;
-    ns2:modified "2016-05-03" ;
-    ns2:title "Korean gut microbiota Sample T Forward" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010173> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ a ns1:NCBITaxon_408170 ;
+            rdfs:label "human gut metagenome" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "human gut metagenome" ],
+        [ rdfs:label "DRS000463" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS000463" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ],
+        [ rdfs:label "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ;
+            ns2:rdf.propertyType "sampleComment" ;
+            ns2:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ] ;
+    ns3:description "1 human gut metagenome samples" ;
+    ns3:identifier "SAMD00010173" ;
+    ns3:modified "2016-05-03" ;
+    ns3:title "Korean gut microbiota Sample T Forward" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010219> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS000443" ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "sampleComment" ;
-            ns1:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ],
-        [ a ns3:NCBITaxon_408170 ;
-            rdfs:label "human gut metagenome" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ] ;
-    ns2:description "1 human gut metagenome samples" ;
-    ns2:identifier "SAMD00010219" ;
-    ns2:modified "2016-05-03" ;
-    ns2:title "Korean gut microbiota Sample F0 Forward" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010219> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_408170 ;
+            rdfs:label "human gut metagenome" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "human gut metagenome" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ],
+        [ rdfs:label "DRS000443" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS000443" ],
+        [ rdfs:label "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ;
+            ns2:rdf.propertyType "sampleComment" ;
+            ns2:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ] ;
+    ns3:description "1 human gut metagenome samples" ;
+    ns3:identifier "SAMD00010219" ;
+    ns3:modified "2016-05-03" ;
+    ns3:title "Korean gut microbiota Sample F0 Forward" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010220> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS000475" ],
-        [ ns1:rdf.propertyType "sampleComment" ;
-            ns1:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ],
-        [ a ns3:NCBITaxon_408170 ;
-            rdfs:label "human gut metagenome" ] ;
-    ns2:description "1 human gut metagenome samples" ;
-    ns2:identifier "SAMD00010220" ;
-    ns2:modified "2016-05-03" ;
-    ns2:title "Korean gut microbiota Sample D2 Reverse" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010220> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ],
+        [ rdfs:label "DRS000475" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS000475" ],
+        [ rdfs:label "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ;
+            ns2:rdf.propertyType "sampleComment" ;
+            ns2:rdf.propertyValue "In this study, we investigated the overall composition of the gut microbiota and its host specificity and temporal stability in 20 Koreans using 454-pyrosequencing with barcoded primers targeting the V1 to V3 region of the bacterial 16S rRNA gene." ],
+        [ a ns1:NCBITaxon_408170 ;
+            rdfs:label "human gut metagenome" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "human gut metagenome" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ] ;
+    ns3:description "1 human gut metagenome samples" ;
+    ns3:identifier "SAMD00010220" ;
+    ns3:modified "2016-05-03" ;
+    ns3:title "Korean gut microbiota Sample D2 Reverse" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010413> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS013373" ] ;
-    ns2:description "1 Homo sapiens samples" ;
-    ns2:identifier "SAMD00010413" ;
-    ns2:modified "2015-09-03" ;
-    ns2:title "LC2ad-R_028" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010413> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ rdfs:label "DRS013373" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS013373" ] ;
+    ns3:description "1 Homo sapiens samples" ;
+    ns3:identifier "SAMD00010413" ;
+    ns3:modified "2015-09-03" ;
+    ns3:title "LC2ad-R_028" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010415> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS013619" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ] ;
-    ns2:description "1 Homo sapiens samples" ;
-    ns2:identifier "SAMD00010415" ;
-    ns2:modified "2015-09-03" ;
-    ns2:title "LMD_029" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010415> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ rdfs:label "DRS013619" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS013619" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ] ;
+    ns3:description "1 Homo sapiens samples" ;
+    ns3:identifier "SAMD00010415" ;
+    ns3:modified "2015-09-03" ;
+    ns3:title "LMD_029" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010509> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS013496" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ] ;
-    ns2:description "1 Homo sapiens samples" ;
-    ns2:identifier "SAMD00010509" ;
-    ns2:modified "2015-09-03" ;
-    ns2:title "LC2ad-R_van_038" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010509> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ rdfs:label "DRS013496" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS013496" ] ;
+    ns3:description "1 Homo sapiens samples" ;
+    ns3:identifier "SAMD00010509" ;
+    ns3:modified "2015-09-03" ;
+    ns3:title "LC2ad-R_van_038" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010608> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS013361" ] ;
-    ns2:description "1 Homo sapiens samples" ;
-    ns2:identifier "SAMD00010608" ;
-    ns2:modified "2015-09-03" ;
-    ns2:title "LC2ad-R_016" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010608> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "DRS013361" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS013361" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ] ;
+    ns3:description "1 Homo sapiens samples" ;
+    ns3:identifier "SAMD00010608" ;
+    ns3:modified "2015-09-03" ;
+    ns3:title "LC2ad-R_016" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010704> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ],
-        [ ns1:rdf.propertyType "sampleComment" ;
-            ns1:rdf.propertyValue "Embryos 3-4 days of Ramazzottius varieornatus YOKOZUNA-1 strain" ],
-        [ a ns3:NCBITaxon_947166 ;
-            rdfs:label "Ramazzottius varieornatus" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS012211" ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ] ;
-    ns2:description "1 Ramazzottius varieornatus samples" ;
-    ns2:identifier "SAMD00010704" ;
-    ns2:modified "2016-10-06" ;
-    ns2:title "Embryos 3-4 days of Ramazzottius varieornatus YOKOZUNA-1 strain" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010704> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "DRS012211" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS012211" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ a ns1:NCBITaxon_947166 ;
+            rdfs:label "Ramazzottius varieornatus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Ramazzottius varieornatus" ],
+        [ rdfs:label "Embryos 3-4 days of Ramazzottius varieornatus YOKOZUNA-1 strain" ;
+            ns2:rdf.propertyType "sampleComment" ;
+            ns2:rdf.propertyValue "Embryos 3-4 days of Ramazzottius varieornatus YOKOZUNA-1 strain" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ] ;
+    ns3:description "1 Ramazzottius varieornatus samples" ;
+    ns3:identifier "SAMD00010704" ;
+    ns3:modified "2016-10-06" ;
+    ns3:title "Embryos 3-4 days of Ramazzottius varieornatus YOKOZUNA-1 strain" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010803> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "DRS012746" ],
-        [ ns1:rdf.propertyType "model" ;
-            ns1:rdf.propertyValue "Generic" ],
-        [ ns1:rdf.propertyType "package" ;
-            ns1:rdf.propertyValue "Generic.1.0" ] ;
-    ns2:description "1 Homo sapiens samples" ;
-    ns2:identifier "SAMD00010803" ;
-    ns2:modified "2015-09-03" ;
-    ns2:title "BRIC_siCTRL_165min_1" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMD00010803> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "DRS012746" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "DRS012746" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Generic.1.0" ;
+            ns2:rdf.propertyType "package" ;
+            ns2:rdf.propertyValue "Generic.1.0" ],
+        [ rdfs:label "Generic" ;
+            ns2:rdf.propertyType "model" ;
+            ns2:rdf.propertyValue "Generic" ] ;
+    ns3:description "1 Homo sapiens samples" ;
+    ns3:identifier "SAMD00010803" ;
+    ns3:modified "2015-09-03" ;
+    ns3:title "BRIC_siCTRL_165min_1" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274525> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 3801 - Huntington's disease subject analyzed for HTT haplotype 3801" ;
-    ns2:identifier "SAMEA104274525" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "QNBWNA" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274525> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 3801 - Huntington's disease subject analyzed for HTT haplotype 3801" ;
+    ns3:identifier "SAMEA104274525" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "QNBWNA" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274624> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ],
-        [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 1518 - Huntington's disease subject analyzed for HTT haplotype 1518" ;
-    ns2:identifier "SAMEA104274624" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "KCEPCW" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274624> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 1518 - Huntington's disease subject analyzed for HTT haplotype 1518" ;
+    ns3:identifier "SAMEA104274624" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "KCEPCW" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274725> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 1913 - Huntington's disease subject analyzed for HTT haplotype 1913" ;
-    ns2:identifier "SAMEA104274725" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "RQFIDR" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274725> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 1913 - Huntington's disease subject analyzed for HTT haplotype 1913" ;
+    ns3:identifier "SAMEA104274725" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "RQFIDR" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274823> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 2849 - Huntington's disease subject analyzed for HTT haplotype 2849" ;
-    ns2:identifier "SAMEA104274823" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "PGXUJX" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104274823> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 2849 - Huntington's disease subject analyzed for HTT haplotype 2849" ;
+    ns3:identifier "SAMEA104274823" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "PGXUJX" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275017> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ],
-        [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 2038 - Huntington's disease subject analyzed for HTT haplotype 2038" ;
-    ns2:identifier "SAMEA104275017" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "SBEKCM" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275017> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 2038 - Huntington's disease subject analyzed for HTT haplotype 2038" ;
+    ns3:identifier "SAMEA104275017" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "SBEKCM" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275215> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 920 - Huntington's disease subject analyzed for HTT haplotype 920" ;
-    ns2:identifier "SAMEA104275215" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "OOYKGY" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275215> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 920 - Huntington's disease subject analyzed for HTT haplotype 920" ;
+    ns3:identifier "SAMEA104275215" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "OOYKGY" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275312> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ],
-        [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 2475 - Huntington's disease subject analyzed for HTT haplotype 2475" ;
-    ns2:identifier "SAMEA104275312" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "RYKPBC" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275312> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 2475 - Huntington's disease subject analyzed for HTT haplotype 2475" ;
+    ns3:identifier "SAMEA104275312" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "RYKPBC" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275313> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ],
-        [ ns1:rdf.propertyType "commonName" ;
-            ns1:rdf.propertyValue "Human" ],
-        [ ns1:rdf.propertyType "diseaseState" ;
-            ns1:rdf.propertyValue "Orphanet:399" ] ;
-    ns3:NCIT_C25461 "Jong-Min Lee" ;
-    ns3:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
-    ns2:description "Huntington's disease subject 2103 - Huntington's disease subject analyzed for HTT haplotype 2103" ;
-    ns2:identifier "SAMEA104275313" ;
-    ns2:modified "2017-05-11" ;
-    ns2:title "KDOPWL" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA104275313> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "Human" ;
+            ns2:rdf.propertyType "commonName" ;
+            ns2:rdf.propertyValue "Human" ],
+        [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ],
+        [ rdfs:label "Orphanet:399" ;
+            ns2:rdf.propertyType "diseaseState" ;
+            ns2:rdf.propertyValue "Orphanet:399" ] ;
+    ns1:NCIT_C25461 "Jong-Min Lee" ;
+    ns1:NCIT_C93874 "\"CBPHD:Center for Genomic Medicine, Massachusetts General Hospital\"" ;
+    ns3:description "Huntington's disease subject 2103 - Huntington's disease subject analyzed for HTT haplotype 2103" ;
+    ns3:identifier "SAMEA104275313" ;
+    ns3:modified "2017-05-11" ;
+    ns3:title "KDOPWL" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA2277300> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_10090 ;
-            rdfs:label "Mus Musculus" ],
-        [ a ns3:NCBITaxon_10090 ;
-            rdfs:label "Mus musculus" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "KLF4TET1_d10_12well_N2B27_C-sc-1802280" ],
-        [ a ns3:PATO_0000383 ;
-            rdfs:label "female" ],
-        [ ns1:rdf.propertyType "secondaryDescription" ;
-            ns1:rdf.propertyValue "iPSC" ],
-        [ ns1:rdf.propertyType "timepoint" ;
-            ns1:rdf.propertyValue "10" ] ;
-    ns2:description "1 Mus musculus samples from ENA SRA" ;
-    ns2:identifier "SAMEA2277300" ;
-    ns2:modified "2015-08-27" ;
-    ns2:title "ERS385130" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA2277300> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_10090 ;
+            rdfs:label "Mus musculus" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Mus musculus" ],
+        [ rdfs:label "KLF4TET1_d10_12well_N2B27_C-sc-1802280" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "KLF4TET1_d10_12well_N2B27_C-sc-1802280" ],
+        [ a ns1:PATO_0000383 ;
+            rdfs:label "female" ;
+            ns2:rdf.propertyType "sex" ;
+            ns2:rdf.propertyValue "female" ],
+        [ rdfs:label "iPSC" ;
+            ns2:rdf.propertyType "secondaryDescription" ;
+            ns2:rdf.propertyValue "iPSC" ],
+        [ a ns1:NCBITaxon_10090 ;
+            rdfs:label "Mus Musculus" ;
+            ns2:rdf.propertyType "species" ;
+            ns2:rdf.propertyValue "Mus Musculus" ],
+        [ rdfs:label "10" ;
+            ns2:rdf.propertyType "timepoint" ;
+            ns2:rdf.propertyValue "10" ] ;
+    ns3:description "1 Mus musculus samples from ENA SRA" ;
+    ns3:identifier "SAMEA2277300" ;
+    ns3:modified "2015-08-27" ;
+    ns3:title "ERS385130" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA2731348> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ ns1:rdf.propertyType "latitudeStart" ;
-            ns1:rdf.propertyValue "-17.5705" ],
-        [ ns1:rdf.propertyType "sizeFractionUpperThreshold" ;
-            ns1:rdf.propertyValue "2000" ],
-        [ ns1:rdf.propertyType "furtherDetails" ;
-            ns1:rdf.propertyValue "tbd" ],
-        [ ns1:rdf.propertyType "latitudeEnd" ;
-            ns1:rdf.propertyValue "-17.6101" ],
-        [ ns1:rdf.propertyType "sampleStatus" ;
-            ns1:rdf.propertyValue "This version can be used to provide data discovery services" ],
-        [ ns1:rdf.propertyType "protocolLabel" ;
-            ns1:rdf.propertyValue "PROT_NUC-RNA(1L)_N180-2000" ],
-        [ ns1:rdf.propertyType "lastUpdateDate" ;
-            ns1:rdf.propertyValue "2014-05-01Z" ],
-        [ a ns3:NCBITaxon_408172 ;
-            rdfs:label "marine metagenome" ],
-        [ ns1:rdf.propertyType "samplingPlatform" ;
-            ns1:rdf.propertyValue "SV Tara" ],
-        [ ns1:rdf.propertyType "eventDateTimeEnd" ;
-            ns1:rdf.propertyValue "2010-06-29T04:49" ],
-        [ ns1:rdf.propertyType "sampleCollectionDevice" ;
-            ns1:rdf.propertyValue "PLANKTON NET, TYPE=Bongo, MESH_Size_(???m)=180, MOUTH_Opening_(m^2)=0.258319, LENGTH_(m)=3" ],
-        [ ns1:rdf.propertyType "sizeFractionLowerThreshold" ;
-            ns1:rdf.propertyValue "180" ],
-        [ ns1:rdf.propertyType "salinitySensor" ;
-            ns1:rdf.propertyValue "99999" ],
-        [ ns1:rdf.propertyType "marineRegion" ;
-            ns1:rdf.propertyValue "(search radius=5 degrees) Marine Ecoregion:Fiji Islands (MRGID:21994), Marine Ecoregion:Western and Northern Madagascar (MRGID:22035)" ],
-        [ ns1:rdf.propertyType "longitudeStart" ;
-            ns1:rdf.propertyValue "42.2769" ],
-        [ ns1:rdf.propertyType "oxygenSensor" ;
-            ns1:rdf.propertyValue "191.474083" ],
-        [ ns1:rdf.propertyType "samplingStation" ;
-            ns1:rdf.propertyValue "TARA_058" ],
-        [ ns1:rdf.propertyType "samplingCampaign" ;
-            ns1:rdf.propertyValue "TARA_20100624Z" ],
-        [ ns1:rdf.propertyType "enaLastUpdate" ;
-            ns1:rdf.propertyValue "2015-11-04" ],
-        [ ns1:rdf.propertyType "enaFirstPublic" ;
-            ns1:rdf.propertyValue "2016-11-14" ],
-        [ ns1:rdf.propertyType "temperature" ;
-            ns1:rdf.propertyValue "26.340117" ],
-        [ ns1:rdf.propertyType "environmentMaterial" ;
-            ns1:rdf.propertyValue "particulate matter, including plankton (ENVO:xxxxxxxx)" ],
-        [ ns1:rdf.propertyType "environmentFeature" ;
-            ns1:rdf.propertyValue "surface water layer (ENVO:00002042)" ],
-        [ a ns3:CHEBI_15377 ;
-            rdfs:label "water" ],
-        [ ns1:rdf.propertyType "chlorophyllSensor" ;
-            ns1:rdf.propertyValue "0.038221" ],
-        [ ns1:rdf.propertyType "projectName" ;
-            ns1:rdf.propertyValue "Tara Oceans expedition (2009-2013)" ],
-        [ ns1:rdf.propertyType "nitrateSensor" ;
-            ns1:rdf.propertyValue "99999" ],
-        [ ns1:rdf.propertyType "environmentBiome" ;
-            ns1:rdf.propertyValue "marine biome (ENVO:00000447)" ],
-        [ ns1:rdf.propertyType "depth" ;
-            ns1:rdf.propertyValue "5" ],
-        [ ns1:rdf.propertyType "eventDateTimeStart" ;
-            ns1:rdf.propertyValue "2010-06-29T04:38" ],
-        [ ns1:rdf.propertyType "synonym" ;
-            ns1:rdf.propertyValue "TARA_N000000437" ],
-        [ ns1:rdf.propertyType "citation" ;
-            ns1:rdf.propertyValue "tbd" ],
-        [ ns1:rdf.propertyType "eventLabel" ;
-            ns1:rdf.propertyValue "TARA_20100629T0438Z_058_EVENT_NET" ],
-        [ ns1:rdf.propertyType "longitudeEnd" ;
-            ns1:rdf.propertyValue "42.1895" ] ;
-    ns2:description "This sample (TARA_N000000437) was collected during the Tara Oceans expedition (2009-2013) at station TARA_058 (latitudeN=-17.5705, longitudeE=42.2769) on date/time=2010-06-29T04:38, using a PLANKTON NET, TYPE=Bongo, MESH_Size_(???m)=180, MOUTH_Opening_(m^2)=0.258319, LENGTH_(m)=3. The sample material (particulate matter, including plankton (ENVO:xxxxxxxx)) was collected at a depth of 3-7 m, targeting a surface water layer (ENVO:00002042) in the marine biome (ENVO:00000447). The sample was size-fractionated (180-2000 micrometres), and stored in liquid nitrogen for later detection of unicellular eukaryote (protist) nucleic acid sequences by pyrosequencing methods, and for later metagenomics/transcriptomics analysis. This sample has replicate sample(s): TARA_N000000438,TARA_N000000439,TARA_N000000440." ;
-    ns2:identifier "SAMEA2731348" ;
-    ns2:modified "2017-01-13" ;
-    ns2:title "ERS489805" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA2731348> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ rdfs:label "marine biome (ENVO:00000447)" ;
+            ns2:rdf.propertyType "environmentBiome" ;
+            ns2:rdf.propertyValue "marine biome (ENVO:00000447)" ],
+        [ rdfs:label "particulate matter, including plankton (ENVO:xxxxxxxx)" ;
+            ns2:rdf.propertyType "environmentMaterial" ;
+            ns2:rdf.propertyValue "particulate matter, including plankton (ENVO:xxxxxxxx)" ],
+        [ rdfs:label "2016-11-14" ;
+            ns2:rdf.propertyType "enaFirstPublic" ;
+            ns2:rdf.propertyValue "2016-11-14" ],
+        [ rdfs:label "26.340117" ;
+            ns2:rdf.propertyType "temperature" ;
+            ns2:rdf.propertyValue "26.340117" ],
+        [ rdfs:label "-17.5705" ;
+            ns2:rdf.propertyType "latitudeStart" ;
+            ns2:rdf.propertyValue "-17.5705" ],
+        [ rdfs:label "TARA_20100629T0438Z_058_EVENT_NET" ;
+            ns2:rdf.propertyType "eventLabel" ;
+            ns2:rdf.propertyValue "TARA_20100629T0438Z_058_EVENT_NET" ],
+        [ rdfs:label "2010-06-29T04:38" ;
+            ns2:rdf.propertyType "eventDateTimeStart" ;
+            ns2:rdf.propertyValue "2010-06-29T04:38" ],
+        [ rdfs:label "SV Tara" ;
+            ns2:rdf.propertyType "samplingPlatform" ;
+            ns2:rdf.propertyValue "SV Tara" ],
+        [ rdfs:label "(search radius=5 degrees) Marine Ecoregion:Fiji Islands (MRGID:21994), Marine Ecoregion:Western and Northern Madagascar (MRGID:22035)" ;
+            ns2:rdf.propertyType "marineRegion" ;
+            ns2:rdf.propertyValue "(search radius=5 degrees) Marine Ecoregion:Fiji Islands (MRGID:21994), Marine Ecoregion:Western and Northern Madagascar (MRGID:22035)" ],
+        [ rdfs:label "2015-11-04" ;
+            ns2:rdf.propertyType "enaLastUpdate" ;
+            ns2:rdf.propertyValue "2015-11-04" ],
+        [ rdfs:label "99999" ;
+            ns2:rdf.propertyType "nitrateSensor" ;
+            ns2:rdf.propertyValue "99999" ],
+        [ rdfs:label "191.474083" ;
+            ns2:rdf.propertyType "oxygenSensor" ;
+            ns2:rdf.propertyValue "191.474083" ],
+        [ rdfs:label "2014-05-01Z" ;
+            ns2:rdf.propertyType "lastUpdateDate" ;
+            ns2:rdf.propertyValue "2014-05-01Z" ],
+        [ rdfs:label "This version can be used to provide data discovery services" ;
+            ns2:rdf.propertyType "sampleStatus" ;
+            ns2:rdf.propertyValue "This version can be used to provide data discovery services" ],
+        [ a ns1:CHEBI_15377 ;
+            rdfs:label "water" ;
+            ns2:rdf.propertyType "environmentalPackage" ;
+            ns2:rdf.propertyValue "water" ],
+        [ rdfs:label "2010-06-29T04:49" ;
+            ns2:rdf.propertyType "eventDateTimeEnd" ;
+            ns2:rdf.propertyValue "2010-06-29T04:49" ],
+        [ rdfs:label "-17.6101" ;
+            ns2:rdf.propertyType "latitudeEnd" ;
+            ns2:rdf.propertyValue "-17.6101" ],
+        [ rdfs:label "180" ;
+            ns2:rdf.propertyType "sizeFractionLowerThreshold" ;
+            ns2:rdf.propertyValue "180" ],
+        [ rdfs:label "2000" ;
+            ns2:rdf.propertyType "sizeFractionUpperThreshold" ;
+            ns2:rdf.propertyValue "2000" ],
+        [ rdfs:label "tbd" ;
+            ns2:rdf.propertyType "citation" ;
+            ns2:rdf.propertyValue "tbd" ],
+        [ rdfs:label "PROT_NUC-RNA(1L)_N180-2000" ;
+            ns2:rdf.propertyType "protocolLabel" ;
+            ns2:rdf.propertyValue "PROT_NUC-RNA(1L)_N180-2000" ],
+        [ rdfs:label "5" ;
+            ns2:rdf.propertyType "depth" ;
+            ns2:rdf.propertyValue "5" ],
+        [ rdfs:label "TARA_20100624Z" ;
+            ns2:rdf.propertyType "samplingCampaign" ;
+            ns2:rdf.propertyValue "TARA_20100624Z" ],
+        [ rdfs:label "99999" ;
+            ns2:rdf.propertyType "salinitySensor" ;
+            ns2:rdf.propertyValue "99999" ],
+        [ rdfs:label "tbd" ;
+            ns2:rdf.propertyType "furtherDetails" ;
+            ns2:rdf.propertyValue "tbd" ],
+        [ rdfs:label "TARA_058" ;
+            ns2:rdf.propertyType "samplingStation" ;
+            ns2:rdf.propertyValue "TARA_058" ],
+        [ rdfs:label "PLANKTON NET, TYPE=Bongo, MESH_Size_(???m)=180, MOUTH_Opening_(m^2)=0.258319, LENGTH_(m)=3" ;
+            ns2:rdf.propertyType "sampleCollectionDevice" ;
+            ns2:rdf.propertyValue "PLANKTON NET, TYPE=Bongo, MESH_Size_(???m)=180, MOUTH_Opening_(m^2)=0.258319, LENGTH_(m)=3" ],
+        [ rdfs:label "42.2769" ;
+            ns2:rdf.propertyType "longitudeStart" ;
+            ns2:rdf.propertyValue "42.2769" ],
+        [ rdfs:label "TARA_N000000437" ;
+            ns2:rdf.propertyType "synonym" ;
+            ns2:rdf.propertyValue "TARA_N000000437" ],
+        [ rdfs:label "Tara Oceans expedition (2009-2013)" ;
+            ns2:rdf.propertyType "projectName" ;
+            ns2:rdf.propertyValue "Tara Oceans expedition (2009-2013)" ],
+        [ a ns1:NCBITaxon_408172 ;
+            rdfs:label "marine metagenome" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "marine metagenome" ],
+        [ rdfs:label "42.1895" ;
+            ns2:rdf.propertyType "longitudeEnd" ;
+            ns2:rdf.propertyValue "42.1895" ],
+        [ rdfs:label "0.038221" ;
+            ns2:rdf.propertyType "chlorophyllSensor" ;
+            ns2:rdf.propertyValue "0.038221" ],
+        [ rdfs:label "surface water layer (ENVO:00002042)" ;
+            ns2:rdf.propertyType "environmentFeature" ;
+            ns2:rdf.propertyValue "surface water layer (ENVO:00002042)" ] ;
+    ns3:description "This sample (TARA_N000000437) was collected during the Tara Oceans expedition (2009-2013) at station TARA_058 (latitudeN=-17.5705, longitudeE=42.2769) on date/time=2010-06-29T04:38, using a PLANKTON NET, TYPE=Bongo, MESH_Size_(???m)=180, MOUTH_Opening_(m^2)=0.258319, LENGTH_(m)=3. The sample material (particulate matter, including plankton (ENVO:xxxxxxxx)) was collected at a depth of 3-7 m, targeting a surface water layer (ENVO:00002042) in the marine biome (ENVO:00000447). The sample was size-fractionated (180-2000 micrometres), and stored in liquid nitrogen for later detection of unicellular eukaryote (protist) nucleic acid sequences by pyrosequencing methods, and for later metagenomics/transcriptomics analysis. This sample has replicate sample(s): TARA_N000000438,TARA_N000000439,TARA_N000000440." ;
+    ns3:identifier "SAMEA2731348" ;
+    ns3:modified "2017-01-13" ;
+    ns3:title "ERS489805" .
 
-<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3064057> a ns3:OBI_0000747 ;
-    ns3:NCIT_C25447 [ a ns3:NCBITaxon_9606 ;
-            rdfs:label "Homo sapiens" ] ;
-    ns3:NCIT_C25461 "Gary Saunders" ;
-    ns3:NCIT_C93874 "EBI - EVA" ;
-    ns2:description "ExAC_v0.1_Sample_43088" ;
-    ns2:identifier "SAMEA3064057" ;
-    ns2:modified "2017-07-14" ;
-    ns2:title "43088" .
+<http://rdf.ebi.ac.uk/resource/biosamples/sample/SAMEA3064057> a ns1:OBI_0000747 ;
+    ns1:NCIT_C25447 [ a ns1:NCBITaxon_9606 ;
+            rdfs:label "Homo sapiens" ;
+            ns2:rdf.propertyType "organism" ;
+            ns2:rdf.propertyValue "Homo sapiens" ] ;
+    ns1:NCIT_C25461 "Gary Saunders" ;
+    ns1:NCIT_C93874 "EBI - EVA" ;
+    ns3:description "ExAC_v0.1_Sample_43088" ;
+    ns3:identifier "SAMEA3064057" ;
+    ns3:modified "2017-07-14" ;
+    ns3:title "43088" .
 
