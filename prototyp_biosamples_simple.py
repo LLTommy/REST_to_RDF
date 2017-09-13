@@ -59,7 +59,7 @@ def buildGraph(params):
                 if ('ontologyTerms' in sample['characteristics'][entry][0]):
                     g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
 
-                g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text'], lang='eng') ) )
                 g.add( (propertyValue, URIRef("http://schema.org/propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
 
 
@@ -71,7 +71,7 @@ def buildGraph(params):
                     if entry not in listOfUnMappedPropertiesType:
                         listOfUnMappedPropertiesType.append(entry)
 
-                g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry) ) )
+                g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry, lang='eng') ) )
                 #g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(sample['characteristics'][entry][0]['text']) ) )
                 g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(entry) ) )
 
@@ -127,9 +127,9 @@ def buildGraph(params):
     #Close the files after exiting the while loop
     output_file.close()
     logging.error("Unmapped top level keys:")
-    logging.error(listOfUnMappedKeys.encode())
+    logging.error(listOfUnMappedKeys)
     logging.error("Unmapped Properties")
-    logging.error(listOfUnMappedPropertiesType.encode())
+    logging.error(listOfUnMappedPropertiesType)
 
 
 
@@ -159,7 +159,7 @@ config={
 
 
 propertyTypesConfig={
-"sampleTitle": "http://purl.org/dc/terms/title"
+    "sampleTitle": "http://purl.org/dc/terms/title"
 }
 
 #pav providedBy
