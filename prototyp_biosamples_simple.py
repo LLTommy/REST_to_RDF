@@ -7,6 +7,7 @@ from multiprocessing import Process
 import logging
 
 listOfUnMappedKeys=[]
+listOfUnMappedPropertiesType=[]
 
 def relation(links, node, relationship, graph, context):
     rel=requests.get(links["_links"][relationship]["href"])
@@ -43,20 +44,37 @@ def buildGraph(params):
                 g.add( (node, URIRef(config['description']), Literal(sample['description']) ) )
 
             g.add( (node, URIRef(config['updateDate']), Literal(sample['updateDate']) ) )
-            g.add( (node, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://purl.obolibrary.org/obo/OBI_0000747") ) )
+            g.add( (node, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://rdf.ebi.ac.uk/terms/biosd/Sample") ) )
 
             for entry in sample['characteristics'].keys():
                 bnode = BNode() #Creates a blank node
                 g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), bnode ) )
 
-                if ('ontologyTerms' in sample['characteristics'][entry][0]):
-                    g.add( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
+                propertyType = BNode() #Creates a blank node
+                propertyValue = BNode() #Creates a blank node
+                g.add ( (bnode, URIRef("http://schema.org/hasPropertyName"), propertyType ) )
+                g.add ( (bnode, URIRef("http://schema.org/hasPropertyValue"), propertyValue ) )
 
-                g.add( (bnode, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text']) ) )
-                #else:
-                    #Should this be else? Does it make sense to always assign the "text"? It is not really necessary if we have an ontology term anyway
-                g.add( (bnode, URIRef("http://rdf.propertyType"), Literal(entry) ) )
-                g.add( (bnode, URIRef("http://rdf.propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
+
+                if ('ontologyTerms' in sample['characteristics'][entry][0]):
+                    g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
+
+                g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                g.add( (propertyValue, URIRef("http://schema.org/propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
+
+
+                if entry in propertyTypesConfig.keys():
+                    g.add( (propertyType, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(propertyTypesConfig[entry] ) ) )
+
+                #Logging of unmapped entries in the properties, giving us an idea what is in there and what could be matched to ontologies
+                else:
+                    if entry not in listOfUnMappedPropertiesType:
+                        listOfUnMappedPropertiesType.append(entry)
+
+                g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry) ) )
+                #g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(entry) ) )
+
 
 
             #####Should these things added to a blank node as well? #####
@@ -81,10 +99,12 @@ def buildGraph(params):
 
 
             #Keep doing this for relevant/interesting data if there is something ?? is there?
+
             #Logging for unmapped keys, let's see if we can find something else on the top level that we did no map yet
             for key in sample.keys():
                 if key not in listOfUnMappedKeys and key not in config.keys():
                     listOfUnMappedKeys.append(key)
+
 
             #####Now let's get into relationships....
             rel = requests.get(sample['_links']['relations']["href"])
@@ -97,7 +117,7 @@ def buildGraph(params):
         #End of FOR loop
         print listOfUnMappedKeys
         page=page+1
-        if page>endpage or page%2==0: #The part after the or is just for testing and will be removed for a real run
+        if page>endpage or page%4==0: #The part after the or is just for testing and will be removed for a real run
             keep_running=False
 
         output=g.serialize(format='turtle')                 #We use turtle
@@ -106,8 +126,10 @@ def buildGraph(params):
 
     #Close the files after exiting the while loop
     output_file.close()
-    logging.error("Things I could not map during this run")
-    logging.error(listOfUnMappedKeys)
+    logging.error("Unmapped top level keys:")
+    logging.error(listOfUnMappedKeys.encode())
+    logging.error("Unmapped Properties")
+    logging.error(listOfUnMappedPropertiesType.encode())
 
 
 
@@ -135,6 +157,12 @@ config={
     }
 }
 
+
+propertyTypesConfig={
+"sampleTitle": "http://purl.org/dc/terms/title"
+}
+
+#pav providedBy
 #Question: Should all be handled through hasCharacteristic or not?
 #    "organism" : "http://purl.obolibrary.org/obo/NCIT_C14250",
 #    "diseaseState" : "http://www.ebi.ac.uk/efo/EFO_0000408",
