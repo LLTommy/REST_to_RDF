@@ -6,35 +6,54 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix riken: <http://metadb.riken.jp/> .
-
+@prefix dcterms: <http://purl.org/dc/terms/> .
 <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/BioSample/BioSample001> a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/BioSample> ;
-    ns3:title "BioSample001" ;
-    ns3:identifier "BioSample001" ;
-    ns3:description "Rat liver" ;
-    ns3:modified "2017-09-12" ;
+    dcterms:title "BioSample001" ;
+    dcterms:identifier "BioSample001" ;
+    dcterms:description "Rat liver" ;
+    dcterms:modified "2017-09-12" ;
     ns1:NCIT_C25461 "Satoshi Kume" ;
     ns1:NCIT_C93874 <http://metadb.riken.jp/db/clstMultimodalMicrostruct/ome/ExperimenterGroup/RIKEN_CLST001> ;
-    ns1:NCIT_C25447 [ rdfs:label "liver" ;
-            ns2:rdf.propertyType "Derives_from " ;
-            ns2:rdf.propertyValue "liver" ;
-	    a <http://purl.obolibrary.org/obo/UBERON_0002107> ], 
-        [ rdfs:label "Rattus norvegicus" ;
-            ns2:rdf.propertyType "sio:organism" ;
-            ns2:rdf.propertyValue "Rattus norvegicus" ;
-	    a <http://purl.obolibrary.org/obo/NCBITaxon_10116> ],
-        [ rdfs:label "Slc:SD" ;
-            ns2:rdf.propertyType "sio:strain" ;
-            ns2:rdf.propertyValue "Slc:SD" ;
-            a <http://purl.obolibrary.org/obo/RS_0001400> ],
-        [ rdfs:label "Normal Rat Liver" ;
-            ns2:rdf.propertyType "Phenotype Data of Biosample" ;
-            ns2:rdf.propertyValue "Normal Rat Liver" ;
-            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/PhenotypeDataOfBioSample/RatLiver001> ],
-        [ rdfs:label "Exp Rat Individual 001" ;
-            ns2:rdf.propertyType "Derives_form (http://purl.obolibrary.org/obo/RO_0001000)" ;
-            ns2:rdf.propertyValue "Exp Rat Individual 001" ;
-            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/brc/Individual/Exp_Indiv001> ],
-        [ rdfs:label "Slc:SD" ;
-            ns2:rdf.propertyType "Animal Strain Used in This Database" ;
-            ns2:rdf.propertyValue "Slc:SD" ;
-            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/SampleStrainType/Slc:SD> ].
+    ns1:NCIT_C25447 
+        [   rdf:propertyType [
+        rdfs:label "Derives_from"@en ;
+        a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/classDerivesFrom> ];
+        rdf:propertyValue [
+            rdfs:label "liver"@en ;
+            a <http://purl.obolibrary.org/obo/UBERON_0002107>  ]. ],
+        [ rdf:propertyType [
+            rdfs:label "Taxon (sio:organism)" ;
+            a <http://purl.obolibrary.org/obo/RO_0002162> ];
+      rdf:propertyValue [
+                rdfs:label "Rattus norvegicus" ;
+                a <http://purl.obolibrary.org/obo/NCBITaxon_10116> ]. ],
+        [ rdf:propertyType [
+        rdfs:label "strain (sio:strain)" ;
+        a <http://metadb.riken.jp/db/bioresource_schema/brs_strainTypeLink>];
+      rdf:propertyValue [
+            rdfs:label "Slc:SD" ;
+            a <http://purl.obolibrary.org/obo/RS_0001400> ]. ],
+        [ rdf:propertyType [
+        rdfs:label "Phenotype Data of Biosample" ;
+        a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/phenotypeDataOfBioSample>];
+        rdf:propertyValue [
+                rdfs:label "Normal Rat Liver" ;
+             a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/PhenotypeDataOfBioSample/RatLiver001> ].],
+        [ rdf:propertyType [
+        rdfs:label "Derives_form" ;
+        a <http://purl.obolibrary.org/obo/RO_0001000>];
+      rdf:propertyValue [
+            rdfs:label "Exp Rat Individual 001" ;
+            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/brc/Individual/Exp_Indiv001> ]. ],
+        [ rdf:propertyType [
+        rdfs:label "prepared by" ;
+        a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/preparetedBy>];
+      rdf:propertyValue [
+            rdfs:label "RIKEN CLST-JEOL Collaboration Center Multi-Modal Microstructure Unit" ;
+            a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/ome/ExperimenterGroup/RIKEN_CLST001> ]. ],
+        [  rdf:propertyType [
+        rdfs:label "Animal Strain Used in This Database" ;
+        a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/sampleStrainType>];
+        rdf:propertyValue [
+                rdfs:label "Slc:SD" ;
+                a <http://metadb.riken.jp/db/clstMultimodalMicrostruct/riken/SampleStrainType/Slc:SD> ].].
