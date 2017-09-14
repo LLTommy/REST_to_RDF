@@ -1,0 +1,59 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix gs: <http://purl.jp/bio/12/glyco/sample#> .
+ 
+<http://bio.glyconavi.org/GlycoSample/GS_40>
+    a gs:Sample ;
+    dcterms:title "GS_40" ;
+    dcterms:description "Py-BHK cells derived from BHK cells transformed by polyoma virus" ;
+    dcterms:identifier "GS_40" ;
+    dcterms:modified "2017-09-13" ;
+    obo:NCIT_C25447 
+            [ 
+                rdf:propertyType [
+                    rdfs:label "organism" ;
+                    a obo:UBERON_0000468 .
+                ];
+                rdf:propertyValue [
+                    rdfs:label "hamster" ;
+                    a obo:NCBITaxon_10026 .
+                ].
+            ] ,
+            [
+                rdf:propertyType [
+                    rdfs:label "ISOLATION SOURCE" .
+                ];
+                rdf:propertyValue [
+                    rdfs:label "surface of normal and transformed cells" .
+                ].
+            ],
+            [
+                rdf:propertyType [
+                    rdfs:label "CELL LINE" ;
+                    a sio:SIO_010054 .
+                ];
+                rdf:propertyValue [
+                    rdfs:label "processing of BHK21-C13 cells, those transformed with the Bryan strain of Rous sarcoma virus (C13-B4), and those transformed by polyoma virus (Py Y)." .
+                ].
+            ],
+            [
+                rdf:propertyType [
+                    rdfs:label "PMID" .
+                ];
+                rdf:propertyValue [
+                    rdfs:label "PMID:4340161" .
+                ].
+            ],
+            [
+                rdf:propertyType [
+                    rdfs:label "ISOLATION SOURCE" .
+                ];
+                rdf:propertyValue [
+                    rdfs:label "baby hamster kidney cells" .
+                ].
+            ].
