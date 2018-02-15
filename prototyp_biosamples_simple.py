@@ -10,11 +10,16 @@ listOfUnMappedKeys=[]
 listOfUnMappedPropertiesType=[]
 
 def relation(links, node, relationship, graph, context):
-    rel=requests.get(links["_links"][relationship]["href"])
-    reply=rel.json()
-    if len(reply["_embedded"]["samplesrelations"])>0:
-        for entry in reply["_embedded"]["samplesrelations"]:
-            graph.add( (node, URIRef(config["relations"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
+    #rel=requests.get(links["_links"][relationship]["href"], headers)
+    #reply=rel.json()
+    #if len(reply["_embedded"]["samplesrelations"])>0:
+    #    for entry in reply["_embedded"]["samplesrelations"]:
+    #        graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
+    print key
+    print context[key]
+
+    graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
+
 
 def buildGraph(params):
     context=params[0]
@@ -28,52 +33,60 @@ def buildGraph(params):
     keep_running=True
 
     while keep_running:
-        url=context['url']+"?size="+str(pageSize)+"&page="+str(page)
-        print url
-        r = requests.get(url)
+        url=context['apiUrl']+"?size="+str(pageSize)+"&page="+str(page)
+        r = requests.get(url, headers)
         reply=r.json()
+        #print url
+        #print json.dumps(reply, sort_keys=True, indent=4)
+
         samples=reply["_embedded"]["samples"]
         g = Graph()
         for sample in samples:
+            #print "Run through samples "+sample['accession']
             node=URIRef(context["base"]+sample['accession'])
 
             g.add( (node, URIRef(config['id']), Literal(sample['accession']) ) )
             g.add( (node, URIRef(config['title']), Literal(sample['name']) ) )
 
-            if sample['description'] is not None:
-                g.add( (node, URIRef(config['description']), Literal(sample['description']) ) )
+            #No more description field in new biosamples API?
+            #if sample['description'] is not None:
+            #    g.add( (node, URIRef(config['description']), Literal(sample['description']) ) )
 
+            g.add( (node, URIRef(config['releaseDate']), Literal(sample['releaseDate']) ) )
             g.add( (node, URIRef(config['updateDate']), Literal(sample['updateDate']) ) )
             g.add( (node, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://rdf.ebi.ac.uk/terms/biosd/Sample") ) )
 
-            for entry in sample['characteristics'].keys():
-                bnode = BNode() #Creates a blank node
-                g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), bnode ) )
+            if 'characteristics' in sample:
+                for entry in sample['characteristics'].keys():
+                    bnode = BNode() #Creates a blank node
 
-                propertyType = BNode() #Creates a blank node
-                propertyValue = BNode() #Creates a blank node
-                g.add ( (bnode, URIRef("http://schema.org/hasPropertyName"), propertyType ) )
-                g.add ( (bnode, URIRef("http://schema.org/hasPropertyValue"), propertyValue ) )
-
-
-                if ('ontologyTerms' in sample['characteristics'][entry][0]):
-                    g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
-
-                g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text'], lang='eng') ) )
-                g.add( (propertyValue, URIRef("http://schema.org/propertyValue"), Literal(sample['characteristics'][entry][0]['text']) ) )
+                    g.add ( (node, URIRef("http://semanticscience.org/resource/SIO_000008"), bnode ) )
+                    #Maybe use NCIT_C25447 <--> instead of SIO, so delete the line above or the one below
+                    #g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), bnode ) )
 
 
-                if entry in propertyTypesConfig.keys():
-                    g.add( (propertyType, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(propertyTypesConfig[entry] ) ) )
+                    propertyType = BNode() #Creates a blank node
+                    propertyValue = BNode() #Creates a blank node
+                    g.add ( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#propertyType"), propertyType ) )
+                    g.add ( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#propertyValue"), propertyValue ) )
 
-                #Logging of unmapped entries in the properties, giving us an idea what is in there and what could be matched to ontologies
-                else:
-                    if entry not in listOfUnMappedPropertiesType:
-                        listOfUnMappedPropertiesType.append(entry)
 
-                g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry, lang='eng') ) )
-                #g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(sample['characteristics'][entry][0]['text']) ) )
-                g.add( (propertyType, URIRef("http://schema.org/propertyName"), Literal(entry) ) )
+                    if ('ontologyTerms' in sample['characteristics'][entry][0]):
+                        g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
+
+                    g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text'], lang='en') ) )
+                    #g.add( (propertyValue, URIRef("http://schema.org/value"), Literal(sample['characteristics'][entry][0]['text']) ) )
+
+                    if entry in propertyTypesConfig.keys():
+                        g.add( (propertyType, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(propertyTypesConfig[entry] ) ) )
+
+                    #Logging of unmapped entries in the properties, giving us an idea what is in there and what could be matched to ontologies
+                    else:
+                        if entry not in listOfUnMappedPropertiesType:
+                            listOfUnMappedPropertiesType.append(entry)
+
+                    g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry, lang='en') ) )
+                    #g.add( (propertyType, URIRef("http://schema.org/propertyId"), Literal(entry) ) )
 
 
 
@@ -94,11 +107,19 @@ def buildGraph(params):
             if 'publications' in sample:
                 for entry in sample['publications']:
                     if ('pubmed_id' in entry):
-                        #note TO SELF - WE WANT TO CHANGE THIS LATER ON TO THE SAME FORMAT THAN PUBMED gives us their data
                         g.add( (node, URIRef(config['publications']), Literal(entry['pubmed_id']) ) )
+
+            ################### ExternalReferences
+            if 'externalReferences' in sample:
+                for entry in sample['externalReferences']:
+                    if ('name' in entry):
+                        g.add( (node, URIRef(config['organization']), Literal(entry['name']) ) )
+                    if ('url' in entry):
+                        g.add( (node, URIRef(config['url']), Literal(entry['url']) ) )
 
 
             #Keep doing this for relevant/interesting data if there is something ?? is there?
+
 
             #Logging for unmapped keys, let's see if we can find something else on the top level that we did no map yet
             for key in sample.keys():
@@ -106,12 +127,25 @@ def buildGraph(params):
                     listOfUnMappedKeys.append(key)
 
 
-            #####Now let's get into relationships....
-            rel = requests.get(sample['_links']['relations']["href"])
-            links=rel.json()
+            if 'relationships' in sample:
+                for key in sample['relationships']:
+                    if key in config['relationships'].keys():
+                    #key['source']
+                    #config['relationships'][key['type']]
+                    #key['target']
+                        g.add( (URIRef(context["base"]+key['source']), URIRef(config['relationships'][key['type']]), URIRef(context["base"]+key['target']) ) )
+                    else:
+                        print "Missing in the config file! Thus I can not assign this relationship"
+                        print key
+                        print config['relationships'].keys()
 
-            for key in context["relations"].keys():
-                    relation(links, node, key, g, context)
+
+            #####Now let's get into relationships....
+            #rel = requests.get(sample['_links']['relations']["href"])
+            #links=rel.json()
+
+            #for key in context["relationships"].keys():
+            #    relation(links, node, key, g, context)
 
 
         #End of FOR loop
@@ -120,9 +154,11 @@ def buildGraph(params):
         if page>endpage or page%4==0: #The part after the or is just for testing and will be removed for a real run
             keep_running=False
 
-        output=g.serialize(format='turtle')                 #We use turtle
-        #output=g.serialize(format='json-ld', indent=4)     #We use json-ld
-        output_file.write(output)                           #Add results to the output file
+
+    #Moved one level outside to prevent multiple headers. Is that doiable if the process runs longer?
+    output=g.serialize(format='turtle')                 #We use turtle
+    #output=g.serialize(format='json-ld', indent=4)     #We use json-ld
+    output_file.write(output)                           #Add results to the output file
 
     #Close the files after exiting the while loop
     output_file.close()
@@ -140,26 +176,32 @@ def buildGraph(params):
 
 ### THIS IS WHERE IT ALL STARTS ###
 config={
-    "url" : "https://www.ebi.ac.uk/biosamples/api/samples/",
+    "apiUrl" : "https://www.ebi.ac.uk/biosamples/samples",
     "base" : "http://rdf.ebi.ac.uk/resource/biosamples/sample/",
     "title" : "http://purl.org/dc/terms/title",
     "id" : "http://purl.org/dc/terms/identifier",
     "description": "http://purl.org/dc/terms/description",
     "updateDate": "http://purl.org/dc/terms/modified",
+    "releaseDate": "http://purl.org/dc/terms/issued",
     "contact" : "http://purl.obolibrary.org/obo/NCIT_C25461",
     "organization" : "http://purl.obolibrary.org/obo/NCIT_C93874",
+    "url" : "http://www.w3.org/ns/dcat#accessURL",
     "publications": "http://purl.org/dc/terms/references",
-    "relations": {
-        "derivedFrom" : "http://purl.org/pav/derivedFrom",
-        "recuratedFrom" : "http://purl.org/pav/curatedBy",
+    "relationships": {
+        "derived from" : "http://purl.org/pav/derivedFrom",
+        "recurated from" : "http://purl.org/pav/curatedBy",
         "sameAs" : "http://www.w3.org/2004/02/skos/core#exactMatch",
-        "childOf" : "http://purl.obolibrary.org/obo/NCIT_C44235"
+        "childOf" : "http://purl.obolibrary.org/obo/NCIT_C44235",
     }
 }
 
-
+#This config is relevant for what we could find in hasCharacteristics
 propertyTypesConfig={
-    "sampleTitle": "http://purl.org/dc/terms/title"
+    "sampleTitle": "http://purl.org/dc/terms/title",
+    "description": "http://purl.org/dc/terms/description",
+    "disease state" : "http://www.ebi.ac.uk/efo/EFO_0000408",
+    "Organism":"http://purl.obolibrary.org/obo/NCIT_C14250",
+    "sex" : "http://purl.obolibrary.org/obo/NCIT_C28421"
 }
 
 #pav providedBy
@@ -172,9 +214,12 @@ propertyTypesConfig={
 
 logging.basicConfig(filename="Biosample_creater.log", level=logging.ERROR, format='%(asctime)s - %(message)s')
 
-numberOfParalelJobs=1
-pageSize=20
-rel=requests.get(config['url']+'?size='+str(pageSize))
+
+headers={'Accept': 'application/hal+json'}
+
+numberOfParalelJobs=3
+pageSize=500
+rel=requests.get(config['apiUrl']+'?size='+str(pageSize), headers)
 reply=rel.json()
 totalPageNumer=reply['page']['totalPages']
 
@@ -182,6 +227,7 @@ totalPageNumer=reply['page']['totalPages']
 print "Total number of pages:"
 print totalPageNumer
 print totalPageNumer/numberOfParalelJobs
+totalPageNumer=10
 
 startpoint=0
 init=[]
