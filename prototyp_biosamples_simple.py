@@ -10,7 +10,7 @@ import ConfigParser
 
 
 listOfUnMappedKeys=[]
-listOfUnMappedPropertiesType=[]
+unmapped_properties=set()
 
 #Not used atm, but shouldn't it be?
 def relation(links, node, relationship, graph, context):
@@ -57,36 +57,43 @@ def buildGraph(params):
             g.add( (node, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://rdf.ebi.ac.uk/terms/biosd/Sample") ) )
 
             if 'characteristics' in sample:
-                for entry in sample['characteristics'].keys():
-                    bnode = BNode() #Creates a blank node
+                characteristics_dict = sample['characteristics']
+                for characteristic_key, characteristic_values in characteristics_dict.items():
 
-                    g.add ( (node, URIRef("http://semanticscience.org/resource/SIO_000008"), bnode ) )
+                    # the value in the dict is always an array of length 1. Who knows why...?
+                    # e.g.
+                    #
+                    # strain": [
+                    #  {
+                    #    "text": "JCM 9152"
+                    #    }
+                    # ],
+                    characteristic_value = characteristic_values[0]
+                    
+                    attribute_node = BNode() #Creates a blank node
+
+                    g.add ( (node, URIRef("http://semanticscience.org/resource/SIO_000008"), attribute_node ) )
                     #Maybe use NCIT_C25447 <--> instead of SIO, so delete the line above or the one below
-                    #g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), bnode ) )
+                    #g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), attribute_node ) )
 
-
-                    propertyType = BNode() #Creates a blank node
-                    propertyValue = BNode() #Creates a blank node
-                    g.add ( (bnode, URIRef("http://whatToTake#propertyType"), propertyType ) )
-                    g.add ( (bnode, URIRef("http://whatToTake#propertyValue"), propertyValue ) )
-
-
-                    if ('ontologyTerms' in sample['characteristics'][entry][0]):
-                        g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(sample['characteristics'][entry][0]['ontologyTerms'][0]) ) )
-
-                    g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(sample['characteristics'][entry][0]['text'], lang='en') ) )
-                    #g.add( (propertyValue, URIRef("http://schema.org/value"), Literal(sample['characteristics'][entry][0]['text']) ) )
-
-                    if entry in propertyTypesConfig.keys():
-                        g.add( (propertyType, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(propertyTypesConfig[entry] ) ) )
+                    if characteristic_key in propertyTypesConfig.keys():
+                        propertyType = URIRef(propertyTypesConfig[characteristic_key] )
+                        g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_key, lang='en') ) )
+                    else:
+                        propertyType = BNode() #Creates a blank node
+                        
+                    if ('ontologyTerms' in characteristic_value):
+                        propertyValue = g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(characteristic_value['ontologyTerms'][0]) ) )
+                    else:
+                        propertyValue = BNode() #Creates a blank node
+                        g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_value['text'], lang='en') ) )
+                        
+                    g.add ( (attribute_node, URIRef("https://w3id.org/biolink/vocab/has_attribute_type"), propertyType ) )
+                    g.add ( (attribute_node, URIRef("https://w3id.org/biolink/vocab/has_qualitative_value"), propertyValue ) )
 
                     #Logging of unmapped entries in the properties, giving us an idea what is in there and what could be matched to ontologies
                     else:
-                        if entry not in listOfUnMappedPropertiesType:
-                            listOfUnMappedPropertiesType.append(entry)
-
-                    g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(entry, lang='en') ) )
-                    #g.add( (propertyType, URIRef("http://schema.org/propertyId"), Literal(entry) ) )
+                        unmapped_properties.update(characteristic_key)
 
 
 
@@ -157,7 +164,7 @@ def buildGraph(params):
     logging.error("Unmapped top level keys:")
     logging.error(listOfUnMappedKeys)
     logging.error("Unmapped Properties")
-    logging.error(listOfUnMappedPropertiesType)
+    logging.error(unmapped_properties)
 
 
 
@@ -228,13 +235,13 @@ for i in range(1,numberOfParalelJobs+1):
 
 processlist=[]
 for run in init:
-    parms=[]
-    parms.append(config)
-    parms.append(run['run'])
-    parms.append(run['start'])
-    parms.append(run['end'])
-    parms.append(pageSize)
-    p=Process(target=buildGraph, args=[parms])
+    params=[]
+    params.append(config)
+    params.append(run['run'])
+    params.append(run['start'])
+    params.append(run['end'])
+    params.append(pageSize)
+    p=Process(target=buildGraph, args=[params])
     p.start()
     processlist.append(p)
 
