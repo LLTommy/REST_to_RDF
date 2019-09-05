@@ -19,8 +19,8 @@ def relation(links, node, relationship, graph, context):
     #if len(reply["_embedded"]["samplesrelations"])>0:
     #    for entry in reply["_embedded"]["samplesrelations"]:
     #        graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
-    print key
-    print context[key]
+    print(key)
+    print(context[key])
     graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
 
 
@@ -92,8 +92,7 @@ def buildGraph(params):
                     g.add ( (attribute_node, URIRef("https://w3id.org/biolink/vocab/has_qualitative_value"), propertyValue ) )
 
                     #Logging of unmapped entries in the properties, giving us an idea what is in there and what could be matched to ontologies
-                    else:
-                        unmapped_properties.update(characteristic_key)
+                    unmapped_properties.update(sample.keys())
 
 
 
@@ -138,7 +137,7 @@ def buildGraph(params):
                     if key in config['relationships'].keys():
                         g.add( (URIRef(context["base"]+key['source']), URIRef(config['relationships'][key['type']]), URIRef(context["base"]+key['target']) ) )
                     else:
-                        print "Missing in the config file! "+str(key)+" Thus I can not assign this relationship"
+                        print("Missing in the config file! "+str(key)+" Thus I can not assign this relationship")
 
 
             #####Now let's get into relationships....
@@ -215,7 +214,7 @@ reply=rel.json()
 totalPageNumber=reply['page']['totalPages']
 
 
-print "Total number of pages and page per job: "+str(totalPageNumber)+" "+str(totalPageNumber/numberOfParalelJobs)
+print("Total number of pages and page per job: "+str(totalPageNumber)+" "+str(totalPageNumber/numberOfParalelJobs))
 
 startpoint=0
 init=[]
