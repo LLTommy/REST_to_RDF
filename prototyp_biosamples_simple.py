@@ -83,7 +83,8 @@ def buildGraph(params):
                         propertyType = BNode() #Creates a blank node
                         
                     if ('ontologyTerms' in characteristic_value):
-                        propertyValue = g.add( (propertyValue, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(characteristic_value['ontologyTerms'][0]) ) )
+                        # it seems that this is always an array of length 1
+                        propertyValue = URIRef(characteristic_value['ontologyTerms'][0])
                     else:
                         propertyValue = BNode() #Creates a blank node
                         g.add( (propertyValue, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_value['text'], lang='en') ) )
