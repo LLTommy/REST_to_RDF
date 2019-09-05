@@ -5,7 +5,7 @@ import json
 import math
 from multiprocessing import Process
 import logging
-import ConfigParser
+import configparser
 
 
 
@@ -177,7 +177,7 @@ def buildGraph(params):
 numberOfParalelJobs=1
 pageSize=500
 
-parser=ConfigParser.RawConfigParser()
+parser=configparser.RawConfigParser()
 parser.read("config_file.ini")
 #print(parser.get('Basics'))
 
