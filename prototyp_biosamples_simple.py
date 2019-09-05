@@ -1,37 +1,34 @@
 import requests
 from rdflib import Graph, plugin, Namespace, URIRef, Literal, BNode
-from rdflib.namespace import RDF
-import json
+#from rdflib.namespace import RDF
+#import json
 import math
 from multiprocessing import Process
 import logging
 import configparser
 
-
-
 listOfUnMappedKeys=[]
 unmapped_properties=set()
 
-#Not used atm, but shouldn't it be?
-def relation(links, node, relationship, graph, context):
+#Not used atm, but shouldn't it be? Should we reactivate this part?
+#def relation(links, node, relationship, graph, context):
     #rel=requests.get(links["_links"][relationship][relation("href"], headers)
     #reply=rel.json()
     #if len(reply["_embedded"]["samplesrelations"])>0:
     #    for entry in reply["_embedded"]["samplesrelations"]:
     #        graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
-    print(key)
-    print(context[key])
-    graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
+#    print(key)
+#    print(context[key])
+#    graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
 
 
 def buildGraph(params):
     context=params[0]
-    filename=params[1]
+    jobnumber=params[1]
     startpage=params[2]
     endpage=params[3]
     pageSize=params[4]
 
-    output_file=open('biosamples_rdf_from_rest_'+str(filename)+'.ttl', 'w')
     page=startpage
     keep_running=True
 
@@ -60,7 +57,7 @@ def buildGraph(params):
                 characteristics_dict = sample['characteristics']
                 for characteristic_key, characteristic_values in characteristics_dict.items():
 
-                    # the value in the dict is always an array of length 1. Who knows why...?
+                    # the value in the dict is always an array of length 1. Who knows why...? We will have to test if that is always true for everything...?
                     # e.g.
                     #
                     # strain": [
@@ -72,15 +69,13 @@ def buildGraph(params):
                     
                     attribute_node = BNode() #Creates a blank node
 
-                    g.add ( (node, URIRef("http://semanticscience.org/resource/SIO_000008"), attribute_node ) )
-                    #Maybe use NCIT_C25447 <--> instead of SIO, so delete the line above or the one below
-                    #g.add ( (node, URIRef("http://purl.obolibrary.org/obo/NCIT_C25447"), attribute_node ) )
+                    g.add ( (node, URIRef("http://semanticscience.org/resource/SIO_000008"), attribute_node ) ) #OR should it be http://purl.obolibrary.org/obo/NCIT_C25447 ?
 
                     if characteristic_key in propertyTypesConfig.keys():
                         propertyType = URIRef(propertyTypesConfig[characteristic_key] )
                         g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_key, lang='en') ) )
                     else:
-                        propertyType = BNode() #Creates a blank node
+                        propertyType = BNode()
                         
                     if ('ontologyTerms' in characteristic_value):
                         # it seems that this is always an array of length 1
@@ -128,19 +123,20 @@ def buildGraph(params):
             #Keep doing this for relevant/interesting data if there is something ?? is there?
 
             #Logging for unmapped keys, let's see if we can find something else on the top level that we did no map yet
-            for key in sample.keys():
-                if key not in listOfUnMappedKeys and key not in config.keys():
-                    listOfUnMappedKeys.append(key)
+            for sample_key in sample.keys():
+                if sample_key not in listOfUnMappedKeys and sample_key not in config.keys():
+                    listOfUnMappedKeys.append(sample_key)
 
 
-            if 'relationships' in sample:
-                for key in sample['relationships']:
-                    if key in config['relationships'].keys():
-                        g.add( (URIRef(context["base"]+key['source']), URIRef(config['relationships'][key['type']]), URIRef(context["base"]+key['target']) ) )
-                    else:
-                        print("Missing in the config file! "+str(key)+" Thus I can not assign this relationship")
-
-
+# DO WE CARE about relationships???
+#            if 'relationships' in sample:
+#                for rel_key in sample['relationships']:
+#                    print(rel_key)
+#                    print(config['relationships'].keys())
+#                    if rel_key in config['relationships'].keys():
+#                        g.add( (URIRef(context["base"]+rel_key['source']), URIRef(config['relationships'][rel_key['type']]), URIRef(context["base"]+rel_key['target']) ) )
+#                    else:
+#                        print("Missing in the config file! "+str(rel_key)+" Thus I can not assign this relationship")
             #####Now let's get into relationships....
             #rel = requests.get(sample['_links']['relations']["href"])
             #links=rel.json()
@@ -153,52 +149,33 @@ def buildGraph(params):
         if page>endpage or page%4==0: #The part after the or is just for testing and will be removed for a real run
             keep_running=False
 
-
-    #Moved one level outside to prevent multiple headers. Is that doable if the process runs longer?
-    output=g.serialize(format='turtle')                 #We use turtle
-    #output=g.serialize(format='json-ld', indent=4)     #We use json-ld
-    output_file.write(output)                           #Add results to the output file
-
-    #Close the files after exiting the while loop
-    output_file.close()
+    g.serialize(destination="rdf_export_job_"+str(jobnumber)+".ttl", format='turtle')                 #We use turtle
     logging.error("Unmapped top level keys:")
     logging.error(listOfUnMappedKeys)
     logging.error("Unmapped Properties")
     logging.error(unmapped_properties)
 
 
-
-
-
-
-
-
-### THIS IS WHERE IT ALL STARTS ###
-
-numberOfParalelJobs=1
-pageSize=500
+################ THIS IS WHERE IT ALL STARTS ################
+numberOfParalelJobs=1       # How many parallel jobs we want to run?
+pageSize=500                # What is the pagesize of the API request we want to look at?
 
 parser=configparser.RawConfigParser()
 parser.read("config_file.ini")
-#print(parser.get('Basics'))
 
 basics=parser.items('Basics')
-relationships=parser.items('relationships')
+###relationships=parser.items('relationships') # DO we care about relationships?    ## DO we care about relationships?
 propertyTypes=parser.items('propertyTypes')
-
-
-#apiURL=parser.get('Basics', 'apiURL')
-#base=parser.get('Basics', 'base')
 
 config={}
 for entry in basics:
     config[entry[0]]=entry[1]
 
-relationshipConfig={}
-for entry in relationships:
-    relationshipConfig[entry[0]]=entry[1]
-
-config["relationships"]=relationshipConfig
+#### #DO we care about the relationships?
+#relationshipConfig={}
+#for entry in relationships:
+#    relationshipConfig[entry[0]]=entry[1]
+#config["relationships"]=relationshipConfig
 
 propertyTypesConfig={}
 
@@ -214,8 +191,7 @@ rel=requests.get(config['apiurl']+'?size='+str(pageSize), headers)
 reply=rel.json()
 totalPageNumber=reply['page']['totalPages']
 
-
-print("Total number of pages and page per job: "+str(totalPageNumber)+" "+str(totalPageNumber/numberOfParalelJobs))
+print("Total number of pages is "+str(totalPageNumber)+" and page per job "+str(totalPageNumber/numberOfParalelJobs))
 
 startpoint=0
 init=[]

@@ -1,0 +1,32 @@
+2019-09-05 17:03:20,742 - Unmapped top level keys:
+2019-09-05 17:03:20,742 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences']
+2019-09-05 17:03:20,742 - Unmapped Properties
+2019-09-05 17:03:20,742 - {'release', '_links', 'releaseDate', 'name', 'domain', 'updateDate', 'externalReferences', 'characteristics', 'taxId', 'update', 'submittedVia', 'relationships', 'accession'}
+2019-09-05 17:08:51,195 - Unmapped top level keys:
+2019-09-05 17:08:51,195 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences']
+2019-09-05 17:08:51,195 - Unmapped Properties
+2019-09-05 17:08:51,195 - {'taxId', 'updateDate', 'name', 'domain', 'release', '_links', 'characteristics', 'releaseDate', 'submittedVia', 'accession', 'externalReferences', 'relationships', 'update'}
+2019-09-05 17:15:11,212 - Unmapped top level keys:
+2019-09-05 17:15:11,212 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:15:11,212 - Unmapped Properties
+2019-09-05 17:15:11,212 - {'submittedVia', 'characteristics', '_links', 'releaseDate', 'relationships', 'domain', 'updateDate', 'accession', 'externalReferences', 'taxId', 'update', 'name', 'release'}
+2019-09-05 17:17:31,084 - Unmapped top level keys:
+2019-09-05 17:17:31,084 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:17:31,084 - Unmapped Properties
+2019-09-05 17:17:31,084 - {'relationships', 'domain', 'taxId', 'characteristics', 'name', 'externalReferences', 'update', '_links', 'releaseDate', 'submittedVia', 'updateDate', 'release', 'accession'}
+2019-09-05 17:20:13,173 - Unmapped top level keys:
+2019-09-05 17:20:13,173 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:20:13,173 - Unmapped Properties
+2019-09-05 17:20:13,173 - {'submittedVia', 'externalReferences', 'characteristics', 'update', 'taxId', 'updateDate', 'accession', '_links', 'release', 'relationships', 'releaseDate', 'domain', 'name'}
+2019-09-05 17:27:18,975 - Unmapped top level keys:
+2019-09-05 17:27:18,976 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:27:18,976 - Unmapped Properties
+2019-09-05 17:27:18,976 - {'update', 'release', 'externalReferences', 'domain', 'releaseDate', 'relationships', 'submittedVia', 'name', 'characteristics', 'updateDate', 'taxId', '_links', 'accession'}
+2019-09-05 17:29:10,301 - Unmapped top level keys:
+2019-09-05 17:29:10,301 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:29:10,301 - Unmapped Properties
+2019-09-05 17:29:10,301 - {'releaseDate', 'taxId', 'name', 'accession', 'updateDate', 'characteristics', 'update', 'submittedVia', 'externalReferences', '_links', 'relationships', 'domain', 'release'}
+2019-09-05 17:32:12,589 - Unmapped top level keys:
+2019-09-05 17:32:12,589 - ['name', 'accession', 'domain', 'release', 'update', 'taxId', 'characteristics', 'releaseDate', 'updateDate', 'submittedVia', '_links', 'externalReferences', 'relationships']
+2019-09-05 17:32:12,589 - Unmapped Properties
+2019-09-05 17:32:12,589 - {'_links', 'characteristics', 'update', 'updateDate', 'taxId', 'name', 'release', 'externalReferences', 'accession', 'submittedVia', 'domain', 'relationships', 'releaseDate'}
