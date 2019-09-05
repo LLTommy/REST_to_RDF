@@ -12,8 +12,9 @@ import ConfigParser
 listOfUnMappedKeys=[]
 listOfUnMappedPropertiesType=[]
 
+#Not used atm, but shouldn't it be?
 def relation(links, node, relationship, graph, context):
-    #rel=requests.get(links["_links"][relationship]["href"], headers)
+    #rel=requests.get(links["_links"][relationship][relation("href"], headers)
     #reply=rel.json()
     #if len(reply["_embedded"]["samplesrelations"])>0:
     #    for entry in reply["_embedded"]["samplesrelations"]:
@@ -35,7 +36,7 @@ def buildGraph(params):
     keep_running=True
 
     while keep_running:
-        url=context['apiUrl']+"?size="+str(pageSize)+"&page="+str(page)
+        url=context['apiurl']+"?size="+str(pageSize)+"&page="+str(page)
         r = requests.get(url, headers)
         reply=r.json()
 
@@ -44,15 +45,15 @@ def buildGraph(params):
         for sample in samples:
             node=URIRef(context["base"]+sample['accession'])
 
-            g.add( (node, URIRef(config['id']), Literal(sample['accession']) ) )
-            g.add( (node, URIRef(config['title']), Literal(sample['name']) ) )
+            g.add( (node, URIRef(context['id']), Literal(sample['accession']) ) )
+            g.add( (node, URIRef(context['title']), Literal(sample['name']) ) )
 
             #No more description field in new biosamples API?
             #if sample['description'] is not None:
-            #    g.add( (node, URIRef(config['description']), Literal(sample['description']) ) )
+            #    g.add( (node, URIRef(context['description']), Literal(sample['description']) ) )
 
-            g.add( (node, URIRef(config['releaseDate']), Literal(sample['releaseDate']) ) )
-            g.add( (node, URIRef(config['updateDate']), Literal(sample['updateDate']) ) )
+            g.add( (node, URIRef(context['releasedate']), Literal(sample['releaseDate']) ) )
+            g.add( (node, URIRef(context['updatedate']), Literal(sample['updateDate']) ) )
             g.add( (node, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://rdf.ebi.ac.uk/terms/biosd/Sample") ) )
 
             if 'characteristics' in sample:
@@ -119,7 +120,6 @@ def buildGraph(params):
 
             #Keep doing this for relevant/interesting data if there is something ?? is there?
 
-
             #Logging for unmapped keys, let's see if we can find something else on the top level that we did no map yet
             for key in sample.keys():
                 if key not in listOfUnMappedKeys and key not in config.keys():
@@ -129,25 +129,19 @@ def buildGraph(params):
             if 'relationships' in sample:
                 for key in sample['relationships']:
                     if key in config['relationships'].keys():
-                    #key['source']
-                    #config['relationships'][key['type']]
-                    #key['target']
                         g.add( (URIRef(context["base"]+key['source']), URIRef(config['relationships'][key['type']]), URIRef(context["base"]+key['target']) ) )
                     else:
                         print "Missing in the config file! "+str(key)+" Thus I can not assign this relationship"
-                        #print config['relationships'].keys()
 
 
             #####Now let's get into relationships....
             #rel = requests.get(sample['_links']['relations']["href"])
             #links=rel.json()
-
             #for key in context["relationships"].keys():
             #    relation(links, node, key, g, context)
 
 
         #End of FOR loop
-        print listOfUnMappedKeys
         page=page+1
         if page>endpage or page%4==0: #The part after the or is just for testing and will be removed for a real run
             keep_running=False
@@ -174,6 +168,9 @@ def buildGraph(params):
 
 ### THIS IS WHERE IT ALL STARTS ###
 
+numberOfParalelJobs=1
+pageSize=500
+
 parser=ConfigParser.RawConfigParser()
 parser.read("config_file.ini")
 #print(parser.get('Basics'))
@@ -182,65 +179,36 @@ basics=parser.items('Basics')
 relationships=parser.items('relationships')
 propertyTypes=parser.items('propertyTypes')
 
-#print(basics)
-#print(relationships)
-#print(propertyTypes)
 
+#apiURL=parser.get('Basics', 'apiURL')
+#base=parser.get('Basics', 'base')
 
+config={}
+for entry in basics:
+    config[entry[0]]=entry[1]
 
-config={
-    "apiUrl" : "https://www.ebi.ac.uk/biosamples/samples",
-    "base" : "http://rdf.ebi.ac.uk/resource/biosamples/sample/",
-    "title" : "http://purl.org/dc/terms/title",
-    "id" : "http://purl.org/dc/terms/identifier",
-    "description": "http://purl.org/dc/terms/description",
-    "updateDate": "http://purl.org/dc/terms/modified",
-    "releaseDate": "http://purl.org/dc/terms/issued",
-    "contact" : "http://purl.obolibrary.org/obo/NCIT_C25461",
-    "organization" : "http://purl.obolibrary.org/obo/NCIT_C93874",
-    "url" : "http://www.w3.org/ns/dcat#accessURL",
-    "publications": "http://purl.org/dc/terms/references",
-    "relationships": {
-        "derived from" : "http://purl.org/pav/derivedFrom",
-        "recurated from" : "http://purl.org/pav/curatedBy",
-        "sameAs" : "http://www.w3.org/2004/02/skos/core#exactMatch",
-        "childOf" : "http://purl.obolibrary.org/obo/NCIT_C44235",
-    }
-}
+relationshipConfig={}
+for entry in relationships:
+    relationshipConfig[entry[0]]=entry[1]
 
-#This config is relevant for what we could find in hasCharacteristics
-propertyTypesConfig={
-    "sampleTitle": "http://purl.org/dc/terms/title",
-    "description": "http://purl.org/dc/terms/description",
-    "disease state" : "http://www.ebi.ac.uk/efo/EFO_0000408",
-    "Organism":"http://purl.obolibrary.org/obo/NCIT_C14250",
-    "sex" : "http://purl.obolibrary.org/obo/NCIT_C28421"
-}
+config["relationships"]=relationshipConfig
 
-#pav providedBy
-#Question: Should all be handled through hasCharacteristic or not?
-#    "organism" : "http://purl.obolibrary.org/obo/NCIT_C14250",
-#    "diseaseState" : "http://www.ebi.ac.uk/efo/EFO_0000408",
-#    "host" : "http://purl.obolibrary.org/obo/NCIT_C66819",
-#    "sex" : "http://purl.obolibrary.org/obo/NCIT_C28421",
+propertyTypesConfig={}
+
+propertyTypes=parser.items('propertyTypes')
+for entry in propertyTypes:
+    propertyTypesConfig[entry[0]]=entry[1]
 
 
 logging.basicConfig(filename="Biosamples_crawler.log", level=logging.INFO, format='%(asctime)s - %(message)s')
-
-
 headers={'Accept': 'application/hal+json'}
 
-numberOfParalelJobs=3
-pageSize=50
-rel=requests.get(config['apiUrl']+'?size='+str(pageSize), headers)
+rel=requests.get(config['apiurl']+'?size='+str(pageSize), headers)
 reply=rel.json()
 totalPageNumber=reply['page']['totalPages']
 
 
-print "Total number of pages and page per job"
-print totalPageNumber
-print totalPageNumber/numberOfParalelJobs
-
+print "Total number of pages and page per job: "+str(totalPageNumber)+" "+str(totalPageNumber/numberOfParalelJobs)
 
 startpoint=0
 init=[]
@@ -257,9 +225,6 @@ for i in range(1,numberOfParalelJobs+1):
     init.append(params)
     startpoint=int(endpoint)+1
 
-
-print init
-print "Let's try this"
 
 processlist=[]
 for run in init:
