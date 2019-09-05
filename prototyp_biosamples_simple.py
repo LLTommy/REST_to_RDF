@@ -5,6 +5,9 @@ import json
 import math
 from multiprocessing import Process
 import logging
+import ConfigParser
+
+
 
 listOfUnMappedKeys=[]
 listOfUnMappedPropertiesType=[]
@@ -17,7 +20,6 @@ def relation(links, node, relationship, graph, context):
     #        graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
     print key
     print context[key]
-
     graph.add( (node, URIRef(config["relationship"][relationship]), URIRef(context["base"]+entry["accession"] ) ) )
 
 
@@ -36,13 +38,10 @@ def buildGraph(params):
         url=context['apiUrl']+"?size="+str(pageSize)+"&page="+str(page)
         r = requests.get(url, headers)
         reply=r.json()
-        #print url
-        #print json.dumps(reply, sort_keys=True, indent=4)
 
         samples=reply["_embedded"]["samples"]
         g = Graph()
         for sample in samples:
-            #print "Run through samples "+sample['accession']
             node=URIRef(context["base"]+sample['accession'])
 
             g.add( (node, URIRef(config['id']), Literal(sample['accession']) ) )
@@ -67,8 +66,8 @@ def buildGraph(params):
 
                     propertyType = BNode() #Creates a blank node
                     propertyValue = BNode() #Creates a blank node
-                    g.add ( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#propertyType"), propertyType ) )
-                    g.add ( (bnode, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#propertyValue"), propertyValue ) )
+                    g.add ( (bnode, URIRef("http://whatToTake#propertyType"), propertyType ) )
+                    g.add ( (bnode, URIRef("http://whatToTake#propertyValue"), propertyValue ) )
 
 
                     if ('ontologyTerms' in sample['characteristics'][entry][0]):
@@ -135,9 +134,8 @@ def buildGraph(params):
                     #key['target']
                         g.add( (URIRef(context["base"]+key['source']), URIRef(config['relationships'][key['type']]), URIRef(context["base"]+key['target']) ) )
                     else:
-                        print "Missing in the config file! Thus I can not assign this relationship"
-                        print key
-                        print config['relationships'].keys()
+                        print "Missing in the config file! "+str(key)+" Thus I can not assign this relationship"
+                        #print config['relationships'].keys()
 
 
             #####Now let's get into relationships....
@@ -155,7 +153,7 @@ def buildGraph(params):
             keep_running=False
 
 
-    #Moved one level outside to prevent multiple headers. Is that doiable if the process runs longer?
+    #Moved one level outside to prevent multiple headers. Is that doable if the process runs longer?
     output=g.serialize(format='turtle')                 #We use turtle
     #output=g.serialize(format='json-ld', indent=4)     #We use json-ld
     output_file.write(output)                           #Add results to the output file
@@ -175,6 +173,21 @@ def buildGraph(params):
 
 
 ### THIS IS WHERE IT ALL STARTS ###
+
+parser=ConfigParser.RawConfigParser()
+parser.read("config_file.ini")
+#print(parser.get('Basics'))
+
+basics=parser.items('Basics')
+relationships=parser.items('relationships')
+propertyTypes=parser.items('propertyTypes')
+
+#print(basics)
+#print(relationships)
+#print(propertyTypes)
+
+
+
 config={
     "apiUrl" : "https://www.ebi.ac.uk/biosamples/samples",
     "base" : "http://rdf.ebi.ac.uk/resource/biosamples/sample/",
@@ -212,34 +225,34 @@ propertyTypesConfig={
 #    "sex" : "http://purl.obolibrary.org/obo/NCIT_C28421",
 
 
-logging.basicConfig(filename="Biosample_creater.log", level=logging.ERROR, format='%(asctime)s - %(message)s')
+logging.basicConfig(filename="Biosamples_crawler.log", level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
 headers={'Accept': 'application/hal+json'}
 
 numberOfParalelJobs=3
-pageSize=500
+pageSize=50
 rel=requests.get(config['apiUrl']+'?size='+str(pageSize), headers)
 reply=rel.json()
-totalPageNumer=reply['page']['totalPages']
+totalPageNumber=reply['page']['totalPages']
 
 
-print "Total number of pages:"
-print totalPageNumer
-print totalPageNumer/numberOfParalelJobs
-totalPageNumer=10
+print "Total number of pages and page per job"
+print totalPageNumber
+print totalPageNumber/numberOfParalelJobs
+
 
 startpoint=0
 init=[]
 for i in range(1,numberOfParalelJobs+1):
     params={}
     params['run']=i
-    endpoint=math.ceil(totalPageNumer/float(numberOfParalelJobs))*i
+    endpoint=math.ceil(totalPageNumber/float(numberOfParalelJobs))*i
     params['start']=startpoint
-    if endpoint<int(totalPageNumer):
+    if endpoint<int(totalPageNumber):
         params['end']=int(endpoint)
     else:
-        params['end']=totalPageNumer
+        params['end']=totalPageNumber
 
     init.append(params)
     startpoint=int(endpoint)+1
