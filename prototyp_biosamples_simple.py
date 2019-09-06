@@ -73,9 +73,9 @@ def buildGraph(params):
 
                     if characteristic_key in propertyTypesConfig.keys():
                         propertyType = URIRef(propertyTypesConfig[characteristic_key] )
-                        g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_key, lang='en') ) )
                     else:
                         propertyType = BNode()
+                        g.add( (propertyType, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), Literal(characteristic_key, lang='en') ) )
                         
                     if ('ontologyTerms' in characteristic_value):
                         # it seems that this is always an array of length 1
